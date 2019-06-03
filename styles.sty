@@ -1,0 +1,60 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles}[styles for diploma]
+
+
+% Times New Roman font package
+\usepackage{mathptmx}
+\usepackage{amsmath}
+
+% Use cyrilic
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Set line space to 1.5
+\renewcommand{\baselinestretch}{1.5}
+
+% Set document margins
+\usepackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+% Set paragraph indentation
+\setlength{\parindent}{1.25cm}
+
+% Package which provides text justification
+\usepackage{ragged2e}
+
+% Use subfiles
+\usepackage{subfiles}
+
+% Define new behaviour of chapter and section command
+\usepackage{titlesec}
+\usepackage{etoolbox}
+% ...chapter
+\titleformat{\chapter}{\normalfont\bfseries}{\large\thechapter.}{1em}{\large}
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
+% ...section
+\titleformat{\section}{\normalfont\bfseries}{\large\thesection.}{1em}{\large}
+
+% Make Bibliography appear in table of contents
+\usepackage[nottoc,numbib]{tocbibind}
+
+% Theorems
+\newtheorem{definition}{Определение}[section]
+
+% Images
+\usepackage{graphicx}
+\graphicspath{ {../plots/} }
+
+% Possible solutions for condition formatting
+\usepackage{array,tabularx}
+\newenvironment{conditions}
+{\par\vspace{\abovedisplayskip}\noindent
+	\begin{tabular}{>{$}l<{$} @{} >{${}}c<{{}$} @{} l}}
+	{\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\newenvironment{conditions*}
+{\par\vspace{\abovedisplayskip}\noindent
+	\tabularx{\columnwidth}{>{$}l<{$} @{}>{${}}c<{{}$}@{} >{\raggedright\arraybackslash}X}}
+{\endtabularx\par\vspace{\belowdisplayskip}}
+
+% For cross referencing
+\usepackage{hyperref}
